@@ -1,0 +1,399 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;cxx;c;def</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h</Extensions>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>moc;h;cpp</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Debug">
+      <UniqueIdentifier>{9c02bd0b-4832-4504-87ed-2653ef05b83a}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="Generated Files\Release">
+      <UniqueIdentifier>{932595e7-4458-476a-a90b-ef6988331292}</UniqueIdentifier>
+      <Extensions>cpp;moc</Extensions>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+    <Filter Include="nim_audio_cpp">
+      <UniqueIdentifier>{38c4a43f-596d-4e27-a110-9254b6abb8f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="nim_http_cpp">
+      <UniqueIdentifier>{bbaeb039-1d12-47a2-885b-dacc3cf2cecf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="onetoonechat.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_onetoonechat.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_onetoonechat.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_onetoonechat.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\nim_sdk\nim_tools_cpp_sdk\nim_http_cpp\nim_tools_http_cpp.cpp">
+      <Filter>nim_http_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\nim_sdk\nim_tools_cpp_sdk\nim_audio_cpp\nim_audio_cpp.cpp">
+      <Filter>nim_audio_cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="UIWindowSet_oneToOne.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_UIWindowSet_oneToOne.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_UIWindowSet_oneToOne.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\qrc_loginwindow.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="palette.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_palette.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_palette.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="shape.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_shape.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_shape.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="colorpicker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_colorpicker.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_colorpicker.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="IMInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_IMInterface.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_IMInterface.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="onetoonechat.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="onetoonechat.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="onetoonechat.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="UIWindowSet_oneToOne.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="UIWindowSet_oneToOne.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="loginwindow.qrc">
+      <Filter>Resource Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="palette.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="palette.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="shape.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="colorpicker.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="colorpicker.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="IMInterface.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GeneratedFiles\ui_onetoonechat.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\nim_sdk\nim_tools_cpp_sdk\nim_http_cpp\nim_tools_http_cpp.h">
+      <Filter>nim_http_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\nim_sdk\nim_tools_cpp_sdk\nim_audio_cpp\nim_audio_cpp.h">
+      <Filter>nim_audio_cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_UIWindowSet_oneToOne.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_palette.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_colorpicker.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="oneToOneChat.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="images\pic.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\RangeTuo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\fabu.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\cancel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\ok1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\eyes.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\msgretrun.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\find.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\chatBtn.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\login_log.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\chatBtnColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\hoverChat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\btn_off.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\nochat.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\set.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\login_close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\t_photo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\alpha.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\titleColor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\video_back1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\camera_1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\switch.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\msgRecord.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\clearScreen.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\face.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\AuxiliaryPanelBack.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\quit.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\course_back.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\course_expand.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\corner.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\teacherPhoto.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\logoTime.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\username.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\userpass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\logo.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\minsize.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\Bullet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletClose.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletSet.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletTalk.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletClose_b.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletSet_b.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\bulletTalk_b.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\sendmessage.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\sendaudio.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\audioSend.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\audioCancel.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\audioSend1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\audioCancel1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\audioBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\chatBar.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\login_min.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\login_max.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\select_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\select_center.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\select_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\noselect_left.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\noselect_center.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\noselect_right.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\select_close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\noselect_close.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\session.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\todayenter_nor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\todayenter_hover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\todayicon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\tabAll_hover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\tabAll_nor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\tabToday_hover.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\tabToday_nor.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\teaching.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="images\alpha1.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
