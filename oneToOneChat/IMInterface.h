@@ -6,6 +6,8 @@
 
 #include "nim_cpp_rts.h"
 #include "nim_cpp_vchat.h"
+#include "nim_cpp_doc_trans.h"
+#include "nim_cpp_nos.h"
 
 /****************************************************************白板会话相关回调***********************************************************************************/
 void CallbackStartChannel(nim::NIMResCode res_code, const std::string& session_id, int channel_type, const std::string& uid);
@@ -44,6 +46,18 @@ void CallbackVChatCb(nim::NIMVideoChatSessionType type, __int64 channel_id, int 
 /****************************************************************音视频设备回调***********************************************************************************/
 void CallbackDeviceDevpath(bool ret, nim::NIMDeviceType type, const char *json_extension, const void *user_data);//遍历设备回调
 void CallbackStartDevice(nim::NIMDeviceType type, bool ret, const char *json_extension, const void *user_data);//启动设备异步回调
+
+/****************************************************************文件传输相关回调***********************************************************************************/
+void CallbackDownloadMedia(nim::NIMResCode res_code, const std::string& file_path, const std::string& call_id, const std::string& res_id); /**< 下载回调模板 */
+void CallbackUploadMedia(nim::NIMResCode res_code, const std::string& url); /**< 上传回调模板 */
+void CallbackProgress(int64_t completed_size, int64_t file_size); /**< 过程回调模板 */
+
+void CallbackDownloadMediaEx(nim::NIMResCode res_code, const nim::DownloadMediaResult& result); /**< 扩展下载回调模板 */
+void CallbackUploadMediaEx(nim::NIMResCode res_code, const nim::UploadMediaResult& result); /**< 扩展上传回调模板 */
+void CallbackProgressEx(int64_t completed_size, int64_t file_size, const nim::ProgressData& result); /**< 扩展过程回调模板 */
+
+void CallbackSpeed(int64_t speed); /**< 速度回调模板 */
+void CallbackTransferInfo(int64_t actual_size, int64_t speed); /**< 最终传输信息回调模板 */
 
 typedef struct DeviceInfo
 {
@@ -112,6 +126,21 @@ public:
 	void setLastError(const QString &error);					//设置最后一次错误信息
 	const QString &getLastError();								//获取最后一次错误信息
 
+	/****************************************************************文件传输相关***********************************************************************************/
+	void uploadFile(const std::string& local_file, const std::string& json_extension);		//上传文件  参数local_file为文件绝对路径，json_extension为扩展参数
+	void downloadFile(const std::string& nos_url, const std::string& json_extension);		//下载文件  参数nos_url为云端url，json_extension为扩展参数
+	/** @fn std::string createJsonExtension(const std::string& name, int source_type, int pic_type, int upload_type = 1, const std::string& doc_trans_ext = "");
+	* 生成上传转码文件需要的json_extension 
+	* @param[in] name 文档名称
+	* @param[in] source_type 转码源文档的文件类型	1:ppt  2:pptx  3:pdf 
+	* @param[in] pic_type 转码目标图片的文件类型	10:jpg	11:png
+	* @param[in] upload_type HTTP上传任务的类型		0:普通文件上传 1:文档转换上传  默认值为1
+	* @param[in] doc_trans_ext HTTP上传任务的类型	文档转换时的扩展参数，在成功后能查询到  默认值为""
+	* @return std::string json_extension字符串
+	*/
+	std::string createJsonExtension(const std::string& name, int source_type, int pic_type, int upload_type = 1, const std::string& doc_trans_ext = "");
+
+
 signals:
 	/****************************************************************白板相关***********************************************************************************/
 	void createRtsRoomSuccessfully(const std::string&);
@@ -127,6 +156,11 @@ signals:
 	/****************************************************************音视频设备相关***********************************************************************************/
 	void deviceInfos(int);											//设备已遍历完成   参数为设备类型
 	void startDeviceSuccessfully(int);								//设备启动成功     参数为设备类型
+
+	/****************************************************************文件传输相关***********************************************************************************/
+	void transferProgress(int64_t, int64_t);						//参数1  已完成数据大小		参数2  文件总大小
+	void transferSpeed(int64_t);									//文件传输速度
+	void transferInfo(int64_t, int64_t);							//参数1  传输数据实际大小		参数2  平均速度
 
 	void hasError(const QString &);
 

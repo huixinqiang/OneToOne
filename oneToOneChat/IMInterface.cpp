@@ -147,6 +147,27 @@ const QString &IMInterface::getLastError()
 	return mLastError;
 }
 
+void IMInterface::uploadFile(const std::string& local_file, const std::string& json_extension)
+{
+	NOS::UploadResourceEx(local_file, json_extension, &CallbackUploadMediaEx, &CallbackProgressEx, &CallbackSpeed, &CallbackTransferInfo);
+}
+
+void IMInterface::downloadFile(const std::string& nos_url, const std::string& json_extension)
+{
+	NOS::DownloadResourceEx(nos_url, json_extension, &CallbackDownloadMediaEx, &CallbackProgressEx, &CallbackSpeed, &CallbackTransferInfo);
+}
+
+std::string IMInterface::createJsonExtension(const std::string& name, int source_type, int pic_type, int upload_type /* = 1 */, const std::string& doc_trans_ext /* = "" */)
+{
+	QJsonObject object;
+	object[nim::kNIMNosUploadType] = upload_type;
+	object[nim::kNIMNosDocTransName] = QString::fromStdString(name);
+	object[nim::kNIMNosDocTransSourceType] = source_type;
+	object[nim::kNIMNosDocTransPicType] = pic_type;
+	object[nim::kNIMNosDocTransExt] = QString::fromStdString(doc_trans_ext);
+	return QJsonDocument(object).toJson().toStdString();
+}
+
 void IMInterface::initVChatCallback()
 {
 	VChat::NetDetect(&CallbackNetDetect);
@@ -525,4 +546,50 @@ void CallbackStartDevice(nim::NIMDeviceType type, bool ret, const char *json_ext
 		qDebug() << VChat::Start(kNIMVideoChatModeVideo, "", "", "");
 		emit IMInterface::getInstance()->startDeviceSuccessfully(type);
 	}
+}
+
+void CallbackDownloadMedia(nim::NIMResCode res_code, const std::string& file_path, const std::string& call_id, const std::string& res_id)
+{
+
+}
+
+void CallbackUploadMedia(nim::NIMResCode res_code, const std::string& url)
+{
+
+}
+
+void CallbackProgress(int64_t completed_size, int64_t file_size)
+{
+
+}
+
+void CallbackDownloadMediaEx(NIMResCode res_code, const DownloadMediaResult& result)
+{
+	if (kNIMResSuccess == res_code)
+	{
+		//获取下载结果
+	}
+}
+
+void CallbackUploadMediaEx(NIMResCode res_code, const UploadMediaResult& result)
+{
+	if (kNIMResSuccess == res_code)
+	{
+		//获取上传结果
+	}
+}
+
+void CallbackProgressEx(int64_t completed_size, int64_t file_size, const ProgressData& result)
+{
+	emit IMInterface::getInstance()->transferProgress(completed_size, file_size);
+}
+
+void CallbackSpeed(int64_t speed)
+{
+	emit IMInterface::getInstance()->transferSpeed(speed);
+}
+
+void CallbackTransferInfo(int64_t actual_size, int64_t speed)
+{
+	emit IMInterface::getInstance()->transferInfo(actual_size, speed);
 }
