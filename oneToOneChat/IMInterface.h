@@ -59,6 +59,8 @@ void CallbackProgressEx(int64_t completed_size, int64_t file_size, const nim::Pr
 void CallbackSpeed(int64_t speed); /**< 速度回调模板 */
 void CallbackTransferInfo(int64_t actual_size, int64_t speed); /**< 最终传输信息回调模板 */
 
+void CallbackDocInfo(int32_t code, const nim::DocTransInfo& doc_info);
+
 typedef struct DeviceInfo
 {
 	int type;
@@ -127,6 +129,7 @@ public:
 	const QString &getLastError();								//获取最后一次错误信息
 
 	/****************************************************************文件传输相关***********************************************************************************/
+	void initFileTransferCallback();							//初始化文档转换回调函数
 	void uploadFile(const std::string& local_file, const std::string& json_extension);		//上传文件  参数local_file为文件绝对路径，json_extension为扩展参数
 	void downloadFile(const std::string& nos_url, const std::string& json_extension);		//下载文件  参数nos_url为云端url，json_extension为扩展参数
 	/** @fn std::string createJsonExtension(const std::string& name, int source_type, int pic_type, int upload_type = 1, const std::string& doc_trans_ext = "");
@@ -139,7 +142,10 @@ public:
 	* @return std::string json_extension字符串
 	*/
 	std::string createJsonExtension(const std::string& name, int source_type, int pic_type, int upload_type = 1, const std::string& doc_trans_ext = "");
+	std::string getPageUrl(int32_t page_num);		//根据页码获取转换完成后图片的下载地址
 
+	void setDocTransInfo(const nim::DocTransInfo& docInfo);		//设置转换文档信息
+	const nim::DocTransInfo& getDocTransInfo();					//获取转换文档信息
 
 signals:
 	/****************************************************************白板相关***********************************************************************************/
@@ -188,6 +194,8 @@ private:
 	QString mLastError;
 
 	DeviceInfoMap mDeviceInfoMap;	//设备类别
+
+	nim::DocTransInfo mDocTransInfo;		//转换完成的文档信息
 };
 
 #endif // WHITEBOARD_H

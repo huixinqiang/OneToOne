@@ -8,7 +8,7 @@ Shape::Shape(QObject *parent) : QObject(parent)
 
 }
 
-void Shape::append(const QPoint &point)
+void Shape::append(const Point &point)
 {
     mPointVec.append(point);
 }
@@ -18,23 +18,27 @@ void Shape::setPen(const QPen &pen)
     mPen = pen;
 }
 
-void Shape::paint(QPainter &painter)
+void Shape::paint(QPainter &painter, const QSize &size)
 {
     painter.setPen(mPen);
-    int size = mPointVec.size();
-    if(size <= 0)
+    int vecSize = mPointVec.size();
+    if(vecSize <= 0)
     {
         return;
     }
-    else if(size == 1)
+    else if(vecSize == 1)
     {
         painter.drawPoint(mPointVec.first());
     }
     else
     {
-        for(int i = 0; i < size - 1; i++)
+        for(int i = 0; i < vecSize - 1; i++)
         {
-            painter.drawLine(mPointVec.at(i), mPointVec.at(i + 1));
+			const QPointF &pointf1 = mPointVec.at(i);
+			const QPointF &pointf2 = mPointVec.at(i + 1);
+			int width = size.width();
+			int height = size.height();
+			painter.drawLine(pointf1.x() * width, pointf1.y() * height, pointf2.x() * width, pointf2.y() * height);
         }
     }
 }

@@ -147,6 +147,11 @@ const QString &IMInterface::getLastError()
 	return mLastError;
 }
 
+void IMInterface::initFileTransferCallback()
+{
+	DocTrans::RegNotifyCb(&CallbackDocInfo);
+}
+
 void IMInterface::uploadFile(const std::string& local_file, const std::string& json_extension)
 {
 	NOS::UploadResourceEx(local_file, json_extension, &CallbackUploadMediaEx, &CallbackProgressEx, &CallbackSpeed, &CallbackTransferInfo);
@@ -166,6 +171,28 @@ std::string IMInterface::createJsonExtension(const std::string& name, int source
 	object[nim::kNIMNosDocTransPicType] = pic_type;
 	object[nim::kNIMNosDocTransExt] = QString::fromStdString(doc_trans_ext);
 	return QJsonDocument(object).toJson().toStdString();
+}
+
+std::string IMInterface::getPageUrl(int32_t page_num)
+{
+	if (page_num > mDocTransInfo.page_num_)
+	{
+		return "";
+	}
+
+	std::list< PictureInfo >::iterator itr(mDocTransInfo.pic_info_.begin());
+	advance(itr, page_num - 1);
+	return DocTrans::GetPageUrl(mDocTransInfo.url_prefix_, mDocTransInfo.pic_type_, itr->quality_, page_num);
+}
+
+void IMInterface::setDocTransInfo(const DocTransInfo& docInfo)
+{
+	mDocTransInfo = docInfo;
+}
+
+const DocTransInfo& IMInterface::getDocTransInfo()
+{
+	return mDocTransInfo;
 }
 
 void IMInterface::initVChatCallback()
@@ -592,4 +619,12 @@ void CallbackSpeed(int64_t speed)
 void CallbackTransferInfo(int64_t actual_size, int64_t speed)
 {
 	emit IMInterface::getInstance()->transferInfo(actual_size, speed);
+}
+
+void CallbackDocInfo(int32_t code, const nim::DocTransInfo& doc_info)
+{
+	if (kNIMResSuccess == code)
+	{
+		IMInterface::getInstance()->setDocTransInfo(doc_info);
+	}
 }
